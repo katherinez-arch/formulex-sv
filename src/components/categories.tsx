@@ -10,7 +10,7 @@ const CATEGORIES = [
     detail: "Divorcio, alimentos, cuidado personal, uniones no matrimoniales",
   },
   {
-    name: "Mercantil y Societario",
+    name: "Mercantil",
     detail: "Pactos sociales, actas, poderes mercantiles, contratos comerciales",
   },
   {
