@@ -1,3 +1,5 @@
+import { Reveal } from "./reveal";
+
 const PILLARS = [
   {
     label: "Revisión profesional",
@@ -23,16 +25,18 @@ export function TrustPillars() {
   return (
     <section id="validacion" className="bg-paper py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
-          Validación legal
-        </p>
-        <h2 className="mt-4 max-w-lg font-serif text-3xl text-ink sm:text-4xl">
-          Por qué puedes confiar en un documento de Formulex
-        </h2>
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+            Validación legal
+          </p>
+          <h2 className="mt-4 max-w-lg font-serif text-3xl text-ink sm:text-4xl">
+            Por qué puedes confiar en un documento de Formulex
+          </h2>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3">
-          {PILLARS.map((pillar) => (
-            <div key={pillar.label}>
+          {PILLARS.map((pillar, index) => (
+            <Reveal key={pillar.label} delay={index * 0.08}>
               <span className="font-mono text-xs uppercase tracking-widest text-gold">
                 {pillar.label}
               </span>
@@ -42,7 +46,7 @@ export function TrustPillars() {
               <p className="mt-3 text-sm leading-6 text-ink/70">
                 {pillar.body}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

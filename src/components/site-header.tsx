@@ -22,16 +22,17 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-xs uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
+              className="group relative font-mono text-xs uppercase tracking-widest text-ink/70 transition-colors hover:text-ink"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
         <a
           href="#lista-de-espera"
-          className="border border-ink px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:bg-ink hover:text-paper"
+          className="border border-ink px-4 py-2 font-mono text-xs uppercase tracking-widest text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-paper active:translate-y-0"
         >
           Lista de espera
         </a>

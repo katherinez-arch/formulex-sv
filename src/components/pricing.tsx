@@ -1,3 +1,5 @@
+import { Reveal } from "./reveal";
+
 const PLANS = [
   {
     name: "Estudiante Básico",
@@ -48,56 +50,59 @@ export function Pricing() {
   return (
     <section id="precios" className="bg-paper-dim py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
-          Precios
-        </p>
-        <h2 className="mt-4 max-w-lg font-serif text-3xl text-ink sm:text-4xl">
-          Un plan para cada etapa
-        </h2>
-        <p className="mt-4 max-w-lg text-sm text-ink/70">
-          Suscripción solo anual — sin plan mensual en ningún tier.
-        </p>
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-gold">
+            Precios
+          </p>
+          <h2 className="mt-4 max-w-lg font-serif text-3xl text-ink sm:text-4xl">
+            Un plan para cada etapa
+          </h2>
+          <p className="mt-4 max-w-lg text-sm text-ink/70">
+            Suscripción solo anual — sin plan mensual en ningún tier.
+          </p>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PLANS.map((plan) => (
-            <div
-              key={plan.name}
-              className={`flex flex-col border p-6 ${
-                plan.highlight
-                  ? "border-ink bg-ink text-paper"
-                  : "border-line-light bg-paper text-ink"
-              }`}
-            >
-              <h3 className="font-mono text-xs uppercase tracking-widest opacity-70">
-                {plan.name}
-              </h3>
-              <p className="mt-4 flex items-baseline gap-2">
-                <span className="font-serif text-3xl">{plan.price}</span>
-                <span className="font-sans text-sm opacity-60">
-                  {plan.period}
-                </span>
-              </p>
-
-              <ul className="mt-6 flex-1 space-y-3 text-sm leading-6">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex gap-2">
-                    <span className="opacity-50">—</span>
-                    <span className="opacity-85">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#lista-de-espera"
-                className={`mt-8 border px-4 py-2 text-center font-mono text-xs uppercase tracking-widest transition-colors ${
+          {PLANS.map((plan, index) => (
+            <Reveal key={plan.name} delay={index * 0.07}>
+              <div
+                className={`flex h-full flex-col border p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
                   plan.highlight
-                    ? "border-paper text-paper hover:bg-paper hover:text-ink"
-                    : "border-ink text-ink hover:bg-ink hover:text-paper"
+                    ? "border-ink bg-ink text-paper"
+                    : "border-line-light bg-paper text-ink"
                 }`}
               >
-                Lista de espera
-              </a>
-            </div>
+                <h3 className="font-mono text-xs uppercase tracking-widest opacity-70">
+                  {plan.name}
+                </h3>
+                <p className="mt-4 flex items-baseline gap-2">
+                  <span className="font-serif text-3xl">{plan.price}</span>
+                  <span className="font-sans text-sm opacity-60">
+                    {plan.period}
+                  </span>
+                </p>
+
+                <ul className="mt-6 flex-1 space-y-3 text-sm leading-6">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex gap-2">
+                      <span className="opacity-50">—</span>
+                      <span className="opacity-85">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#lista-de-espera"
+                  className={`mt-8 border px-4 py-2 text-center font-mono text-xs uppercase tracking-widest transition-colors ${
+                    plan.highlight
+                      ? "border-paper text-paper hover:bg-paper hover:text-ink"
+                      : "border-ink text-ink hover:bg-ink hover:text-paper"
+                  }`}
+                >
+                  Lista de espera
+                </a>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>
